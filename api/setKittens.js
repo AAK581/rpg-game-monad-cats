@@ -3,10 +3,9 @@ const ethers = require("ethers");
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Use for testing, restrict later
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS, GET');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+    return res.status(200).end();
   }
   
   try {
