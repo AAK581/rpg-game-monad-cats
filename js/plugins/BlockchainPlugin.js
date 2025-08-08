@@ -412,7 +412,7 @@
         console.log("Still attempting");
         console.log("setKittens: Network chainId:", network.chainId);
         const chainIdNum = Number(network.chainId);
-        console.log("Before fetch", { url: 'https://monad-cats-game.vercel.app/api/setKittens', body: JSON.stringify({ kittens: maxNewKittens, userAddress, chainId: chainIdNum }) });
+        console.log("Before fetch", { url: 'https://rpg-game-monad-cats.vercel.app/api/setKittens', body: JSON.stringify({ kittens: maxNewKittens, userAddress, chainId: chainIdNum }) });
         const controller = new AbortController();
         const timeoutId = setTimeout(() => {
           console.error("Fetch timed out after 20s");
@@ -420,7 +420,7 @@
         }, 20000);
         let response;
         try {
-          response = await fetch('https://monad-cats-game.vercel.app/api/setKittens', {
+          response = await fetch('https://rpg-game-monad-cats.vercel.app/api/setKittens', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ kittens: maxNewKittens, userAddress, chainId: chainIdNum }),
@@ -443,7 +443,6 @@
         const currentLocalKittens = $gameVariables.value(window.BlockchainPlugin.randomKittenVar);
         const newLocalKittens = Math.max(0, currentLocalKittens - maxNewKittens);
         $gameVariables.setValue(window.BlockchainPlugin.randomKittenVar, newLocalKittens);
-        $gameParty._items[2] = $gameVariables.value(newLocalKittens);
         console.log('setKittens: Updated local variable');
         $gameMessage.add(`Synced ${maxNewKittens} kittens successfully! Total on-chain: ${currentOnChainKittens + maxNewKittens}`);
         return true;
