@@ -1,11 +1,19 @@
 {
   "version": 2,
   "builds": [
-    { "src": "/**/*", "use": "@vercel/static", "config": { "includeFiles": ["index.html", "js/**", "audio/**", "css/**", "data/**", "effects/**", "fonts/**", "img/**", "locales/**", "icon/**"] } },
-    { "src": "api/setKittens.js", "use": "@vercel/node" }
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "js/**", "use": "@vercel/static" },
+    { "src": "audio/**", "use": "@vercel/static" },
+    { "src": "css/**", "use": "@vercel/static" },
+    { "src": "data/**", "use": "@vercel/static" },
+    { "src": "effects/**", "use": "@vercel/static" },
+    { "src": "fonts/**", "use": "@vercel/static" },
+    { "src": "img/**", "use": "@vercel/static" },
+    { "src": "locales/**", "use": "@vercel/static" },
+    { "src": "icon/**", "use": "@vercel/static" }
   ],
-"rewrites": [
-  { "source": "/api/setKittens", "destination": "/api/setKittens.js" },
-  { "source": "/(.*)", "destination": "/index.html" }
-]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
