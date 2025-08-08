@@ -1,8 +1,12 @@
 const ethers = require("ethers");
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Temporary CORS fix
+  res.setHeader('Access-Control-Allow-Origin', 'https://monad-cats-game.vercel.app/'); // Temporary CORS fix
   res.setHeader('Access-Control-Allow-Methods', 'POST');
+  if (req.method === 'OPTIONS') {
+  res.status(200).end();
+  return;
+  }
   
   try {
     console.log("setKittens API: Checking GAME_PRIVATE_KEY", { hasKey: !!process.env.GAME_PRIVATE_KEY });
