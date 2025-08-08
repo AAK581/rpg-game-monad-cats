@@ -5,7 +5,7 @@
     { "src": "api/setKittens.js", "use": "@vercel/node" }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/setKittens.js" },
+    { "source": "/api/setKittens.js", "destination": "/api/setKittens.js" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
