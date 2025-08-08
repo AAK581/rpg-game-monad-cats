@@ -443,6 +443,7 @@
         const currentLocalKittens = $gameVariables.value(window.BlockchainPlugin.randomKittenVar);
         const newLocalKittens = Math.max(0, currentLocalKittens - maxNewKittens);
         $gameVariables.setValue(window.BlockchainPlugin.randomKittenVar, newLocalKittens);
+        $gameParty._items[2] = $gameVariables.value(newLocalKittens);
         console.log('setKittens: Updated local variable');
         $gameMessage.add(`Synced ${maxNewKittens} kittens successfully! Total on-chain: ${currentOnChainKittens + maxNewKittens}`);
         return true;
